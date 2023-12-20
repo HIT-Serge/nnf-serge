@@ -22,7 +22,7 @@ export default function Episodes({ showID, seasonNumber }: EpisodeProps) {
 
                     renderItem={itemData => {
                         const posterAvailable: string = itemData.item.still_path;
-                        let posterImage: ImageProps | {uri: string }= posterAvailable ?  {uri : `${POSTER_BASE_URL}${itemData.item.still_path}`}: noImage ;
+                         let posterImage: ImageProps | {uri: string }= posterAvailable ?  {uri : `${POSTER_BASE_URL}${itemData.item.still_path}`}: noImage ;
                         console.log(posterImage)
                         return (
                             <View style={styles.episodeContainer}>
