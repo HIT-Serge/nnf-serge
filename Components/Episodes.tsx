@@ -18,7 +18,7 @@ export default function Episodes({ showID, seasonNumber }: EpisodeProps) {
         return (
             <View>
                 <FlatList alwaysBounceVertical={false}
-                    data={currentEpisodes} 
+                    data={currentEpisodes}
 
                     renderItem={itemData => {
                         const posterAvailable: string = itemData.item.still_path;
