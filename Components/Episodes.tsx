@@ -1,4 +1,14 @@
 
+// IMPORTS
+
+import { FlatList, Image, ImageProps, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableWithoutFeedback, useColorScheme, TextInput, View, SectionList, } from 'react-native';
+import React, { useState, useEffect, useContext, createContext, useRef, PropsWithChildren } from 'react';
+import { ApiResponse, Episode, FetchResponse, SerieDetailObject, SerieObject, SerieEpisodesObject, Season, } from "../Types/types";
+import useFetch from "./useFetch";
+// import styles from "../Styles/styles";
+import { POSTER_BASE_URL } from '@env';
+import noImage from '../Assets/noImageAvailable.jpg';
+
 // COMPONENTS
 export default function Episodes({ showID, seasonNumber }: EpisodeProps) {
 
@@ -18,16 +28,15 @@ export default function Episodes({ showID, seasonNumber }: EpisodeProps) {
         return (
             <View>
                 <FlatList alwaysBounceVertical={false}
-                    data={currentEpisodes} 
+                    data={currentEpisodes}
 
                     renderItem={itemData => {
                         const posterAvailable: string = itemData.item.still_path;
-                         let posterImage: ImageProps | {uri: string }= posterAvailable ?  {uri : `${POSTER_BASE_URL}${itemData.item.still_path}`}: noImage ;
-                        console.log(posterImage)
+                        let posterImage: ImageProps | { uri: string } = posterAvailable ? { uri: `${POSTER_BASE_URL}${itemData.item.still_path}` } : noImage;
                         return (
                             <View style={styles.episodeContainer}>
                                 <View style={{ flex: 1, marginRight: 8 }}>
-                                    <Image style={{ aspectRatio: 1 / 1, width:100, height: 100 }} source={posterImage} />
+                                    <Image style={{ aspectRatio: 1 / 1, width: 100, height: 100 }} source={posterImage} />
                                     <Text style={{ color: 'white', fontWeight: "bold" }}>{itemData.item.air_date}</Text>
                                     <Text style={{ color: 'white' }}>{itemData.item.runtime}m</Text>
                                 </View>
@@ -75,13 +84,3 @@ const styles = StyleSheet.create({
     }
 
 })
-
-// IMPORTS
-
-import { FlatList, Image, ImageProps, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableWithoutFeedback, useColorScheme, TextInput, View, SectionList, } from 'react-native';
-import React, { useState, useEffect, useContext, createContext, useRef, PropsWithChildren } from 'react';
-import { ApiResponse, Episode, FetchResponse, SerieDetailObject, SerieObject, SerieEpisodesObject, Season, } from "../Types/types";
-import useFetch from "./useFetch";
-// import styles from "../Styles/styles";
-import { POSTER_BASE_URL } from '@env';
-import noImage from '../Assets/noImageAvailable.jpg';

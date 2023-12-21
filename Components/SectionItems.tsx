@@ -1,3 +1,8 @@
+// IMPORTS
+import { FlatList, Image, ImageSourcePropType, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableWithoutFeedback, useColorScheme, TextInput, View, SectionList, } from 'react-native';
+import React, { useState, useEffect, useContext, createContext, } from 'react';
+
+
 // COMPONENTS
 
 const SectionItem: React.FC<SectionItemProps> = (props: SectionItemProps) => {
@@ -80,6 +85,3 @@ type SectionHeaderProps = { section: { title: string } };
 type ListHeaderProps = { image: string, title: string };
 type UniqueKeyProps = { item: string, index: number };
 
-// IMPORTS
-import { FlatList, Image, ImageSourcePropType, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableWithoutFeedback, useColorScheme, TextInput, View, SectionList, } from 'react-native';
-import React, { useState, useEffect, useContext, createContext, } from 'react';
