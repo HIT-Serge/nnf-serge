@@ -22,10 +22,9 @@ export default function Overview(): JSX.Element {
 
     const response = useFetch("https://api.themoviedb.org/3/tv/popular") as FetchResponse;
     const loading = response.loading;
-    console.log('loading: ', loading)
     const data = response.data as ApiResponse;
     const resultData = data?.results as SerieObject[];
-    const noImage = require('../Assets/noImageAvailable.jpg');
+
 
 
     const { detailState, setDetailState } = useContext<StateContextType>(StateContext);

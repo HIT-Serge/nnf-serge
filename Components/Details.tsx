@@ -1,3 +1,14 @@
+
+// IMPORTS
+import { FlatList, Image, ImageSourcePropType, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableWithoutFeedback, useColorScheme, TextInput, View, SectionList, } from 'react-native';
+import React, { useState, useEffect, useContext, createContext, } from 'react';
+import { ApiResponse, FetchResponse, SerieDetailObject, SerieObject, Season } from "../Types/types";
+import useFetch from "./useFetch";
+// import styles from "../Styles/styles";
+import { StateContext } from './Home';
+import DropDown from './DropDown';
+import { SectionItem, SectionHeader, ListHeader, UniqueKey } from './SectionItems';
+
 // COMPONENTS
 
 // export default function Details({ detailsOn, showID }: StateType) {
@@ -117,15 +128,6 @@ type Section = {
     data: string[],
 };
 
-// IMPORTS
-import { FlatList, Image, ImageSourcePropType, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableWithoutFeedback, useColorScheme, TextInput, View, SectionList, } from 'react-native';
-import React, { useState, useEffect, useContext, createContext, } from 'react';
-import { ApiResponse, FetchResponse, SerieDetailObject, SerieObject, Season } from "../Types/types";
-import useFetch from "./useFetch";
-// import styles from "../Styles/styles";
-import { StateContext } from './Home';
-import DropDown from './DropDown';
-import { SectionItem, SectionHeader, ListHeader, UniqueKey } from './SectionItems';
 
 
 

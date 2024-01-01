@@ -1,3 +1,13 @@
+// IMPORTS
+import { FlatList, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableWithoutFeedback, useColorScheme, TextInput, View, SectionList, } from 'react-native';
+import React, { useState, useEffect, useContext, createContext, } from 'react';
+import { ApiResponse, FetchResponse, SerieDetailObject, SerieObject, Season, } from "../Types/types";
+import useFetch from "./useFetch";
+// import styles from "../Styles/styles";
+import { StateContext } from './Home';
+import SelectDropdown from 'react-native-select-dropdown';
+import Episodes from './Episodes';
+
 
 // COMPONENTS
 export default function DropDown({ showID }: DropDownProps): JSX.Element {
@@ -58,14 +68,5 @@ const styles = StyleSheet.create({
 
 })
 
-// IMPORTS
-import { FlatList, Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableWithoutFeedback, useColorScheme, TextInput, View, SectionList, } from 'react-native';
-import React, { useState, useEffect, useContext, createContext, } from 'react';
-import { ApiResponse, FetchResponse, SerieDetailObject, SerieObject, Season, } from "../Types/types";
-import useFetch from "./useFetch";
-// import styles from "../Styles/styles";
-import { StateContext } from './Home';
-import SelectDropdown from 'react-native-select-dropdown';
-import Episodes from './Episodes';
 
 

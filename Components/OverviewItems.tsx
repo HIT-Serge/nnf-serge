@@ -1,18 +1,25 @@
+// IMPORTS
+import { FlatList, Image, ImageProps, ImageSourcePropType, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableWithoutFeedback, useColorScheme, TextInput, View, SectionList, } from 'react-native';
+import React, { useState, useEffect, useContext, createContext, } from 'react';
+import { ApiResponse, FetchResponse, SerieObject, } from "../Types/types";
+import { StateContext } from './Home';
+import { POSTER_BASE_URL } from '@env';
+
 // COMPONENTS
 
 const OverviewItem: React.FC<OverviewItemProps> = (props: OverviewItemProps) => {
     const item = props.item;
     const { detailState, setDetailState } = useContext<StateContextType>(StateContext);
     const noImage = require('../Assets/noImageAvailable.jpg');
-
-    let posterImage: string = item.poster_path ? `https://image.tmdb.org/t/p/w500/${props.item.poster_path}` : noImage;
+    const posterAvailable: string = props.item.poster_path;
+    let posterImage: ImageProps | { uri: string } = posterAvailable ? { uri: `${POSTER_BASE_URL}${props.item.poster_path}` } : noImage;
 
     return (
         <TouchableWithoutFeedback key={item.id}
             onPress={() => setDetailState({ ...detailState, detailsOn: !detailState.detailsOn, showID: item.id })}>
             <View>
 
-                <Image source={{ uri: `${posterImage}` }} style={styles.image} />
+                <Image source={posterImage} style={styles.image} />
                 <Text style={styles.itemText}>{item.name}</Text>
                 <Text style={styles.itemText}>{item.first_air_date}</Text>
             </View>
@@ -53,8 +60,3 @@ type StateContextType = {
 
 
 
-// IMPORTS
-import { FlatList, Image, ImageSourcePropType, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableWithoutFeedback, useColorScheme, TextInput, View, SectionList, } from 'react-native';
-import React, { useState, useEffect, useContext, createContext, } from 'react';
-import { ApiResponse, FetchResponse, SerieObject, } from "../Types/types";
-import { StateContext } from './Home';
