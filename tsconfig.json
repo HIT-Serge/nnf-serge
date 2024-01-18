@@ -3,18 +3,9 @@
     "strict": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "types": [
-      "node"
-    ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "Types"
-    ]
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types", "Types"]
   },
-  "include": [
-    "Components/**/*",
-    "Types/**/*",
-    "./env.d.ts"
-  ],
+  "include": ["Components/**/*", "Types/**/*", "./env.d.ts"],
   "extends": "expo/tsconfig.base"
 }
